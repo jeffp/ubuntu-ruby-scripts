@@ -1,0 +1,31 @@
+== Ubuntu-Ruby-Scripts
+
+Ruby install scripts for Ubuntu development environment
+
+== Usage
+
+Git the scripts into your src directory.  Ruby code will be downloaded and built 
+in corresponding subdirectories.
+ 
+  git clone git://github.com/jeffp/ubuntu-ruby-scripts.git src
+
+From the src directory, install the build dependencies.  You will only need to 
+run this script once.
+
+  cd src
+  ./install-ruby-ubuntu-dependencies.sh
+
+Now install the ruby versions you want to work with or test.
+
+  ./install-ruby-1.8.7.sh
+  ./install-ruby-1.9.1.sh
+
+Rails and several common gems will be installed with each version of Ruby.
+
+Use the rver tool to change between ruby versions.  A link should have been
+installed in your /usr/local/bin directory.
+
+  rver 1.8.7
+  rver 1.9.1
+
+
