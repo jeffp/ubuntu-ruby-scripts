@@ -49,7 +49,7 @@ sudo $RPATH/gem install thin $OPTS
 echo .................................
 echo $SRCDIR Installed
 echo to use $VER -- 
-echo  add /opt/$SRCDIR/bin to the PATH
+echo  run rver $VER
 echo or
-echo  run ./rver $VER
+echo  add /opt/$SRCDIR/bin to the PATH
 echo .................................

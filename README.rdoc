@@ -9,7 +9,15 @@ in corresponding subdirectories.
  
   git clone git://github.com/jeffp/ubuntu-ruby-scripts.git src
 
-From the src directory, install the build dependencies.  You will only need to 
+If you don't have git installed and configured you can quickly do so with
+
+  ./install-git.sh your_username your_email_address
+
+This will configure your public key for ssh and display it at the end of the install.
+You can copy this key into your github account to enable access from your workstation,
+or find the same key later in the ~/.ssh folder.
+
+Continuing the Ruby install, from the src directory, install the build dependencies.  You will only need to
 run this script once.
 
   cd src
