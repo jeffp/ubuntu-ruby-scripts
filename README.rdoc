@@ -9,26 +9,22 @@ in corresponding subdirectories.
  
   git clone git://github.com/jeffp/ubuntu-ruby-scripts.git src
 
-If you don't have git installed and configured you can quickly do so with
+If you don't have git configured for github you can quickly do so with
 
   ./install-git.sh your_username your_email_address
 
-This will configure your public key for ssh and display it at the end of the install.
+This will create your credential for ssh and display it at the end.
 You can copy this key into your github account to enable access from your workstation,
 or find the same key later in the ~/.ssh folder.
 
-Continuing the Ruby install, from the src directory, install the build dependencies.  You will only need to
-run this script once.
+Continuing the Ruby install, from the src directory.  Install your required Ruby versions.
 
   cd src
-  ./install-ruby-ubuntu-dependencies.sh
 
-Now install the ruby versions you want to work with or test.
+  ./install-ruby-1.8.7
+  ./install-ruby-1.9.1
 
-  ./install-ruby-1.8.7.sh
-  ./install-ruby-1.9.1.sh
-
-Rails and several common gems will be installed with each version of Ruby.
+Rails and common popular gems will be installed with each version of Ruby.
 
 Use the rver tool to change between ruby versions.  A link should have been
 installed in your /usr/local/bin directory.

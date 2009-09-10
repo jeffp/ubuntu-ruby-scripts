@@ -1,12 +1,18 @@
-MAJVER=1.8
-VER=$MAJVER.6
+#!/bin/bash
+
+if [ -z $1 ]; then
+ echo usage: install-ruby.sh [version-patch] 
+ exit
+fi
+
+FILEVER=$1
+VER=${FILEVER:0:5}
+MAJVER=${VER:0:3}
 SRCDIR=ruby$VER
-RUBYFILE=ruby-$VER-p383
+RUBYFILE=ruby-$FILEVER
 
 if [ ! -e "rubygems" ]; then
- echo run install-ruby-ubuntu-dependencies.sh first!
- echo
- exit
+ ./bin/install-ruby-ubuntu-dependencies.sh
 fi
 
 echo Installing and Configuring $SRCDIR with Rails
@@ -37,7 +43,10 @@ sudo $RPATH/gem sources -a http://gems.github.com
 sudo $RPATH/gem install rails $OPTS
 sudo $RPATH/gem install sqlite3-ruby $OPTS
 
-sudo $RPATH/gem install rake $OPTS
+if (( ${MAJVER:0:1} == 1 )) && (( ${MAJVER:2:1} < 9 )); then
+ sudo $RPATH/gem install rake $OPTS
+fi
+
 sudo $RPATH/gem install rspec rspec-rails $OPTS
 sudo $RPATH/gem install webrat launchy $OPTS
 sudo $RPATH/gem install test-unit -v=1.2.3 $OPTS
@@ -46,10 +55,11 @@ sudo $RPATH/gem install ruby-debug-ide $OPTS
 
 sudo $RPATH/gem install thin $OPTS
 
+echo
 echo .................................
-echo $SRCDIR Installed
+echo Ruby $VER Installed
 echo to use $VER -- 
-echo  run rver $VER
+echo  run ./rver $VER
 echo or
 echo  add /opt/$SRCDIR/bin to the PATH
 echo .................................

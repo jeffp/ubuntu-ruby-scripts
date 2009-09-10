@@ -1,3 +1,5 @@
+echo Installing Ubuntu Ruby build dependencies
+
 sudo apt-get -y update
 sudo apt-get -y dist-upgrade
 sudo apt-get -y install default-jre
@@ -18,6 +20,7 @@ sudo apt-get -y build-dep sqlite3-ruby
 #nokogiri - webrat build dependencies
 sudo apt-get -y install libxslt1-dev libxml2-dev
 
-sudo ln -sf $PWD/set-ruby-version.sh /usr/local/bin/rver
+sudo cp -f bin/set-ruby-version.sh /usr/local/bin
+sudo ln -sf /usr/local/bin/set-ruby-version.sh /usr/local/bin/rver
 
 
